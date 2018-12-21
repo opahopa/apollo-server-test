@@ -1,0 +1,37 @@
+type Query {
+    campaigns: [Campaign]!
+    campaign(id: ID!): Campaign
+    # Queries for the current user
+    me: User
+}
+
+type Mutation {
+    createCampaign(name: String, description: String, target: Int): CampaignUpdateResponse!
+    updateCampaign(id: ID!, name: String, description: String, target: Int): CampaignUpdateResponse!
+    deleteCampaign(id: ID!): Boolean!
+
+    login(email: String): String # login token
+}
+
+type User {
+    id: ID!
+    email: String!
+    campaigns: [Campaign]
+}
+
+type CampaignUpdateResponse {
+    success: Boolean!
+    message: String
+    campaign: Campaign
+}
+
+type Campaign {
+    id: ID!
+    name: String!
+    description: String!
+    target: Int!
+    collected: Int
+    contributors: [User]
+    isActive: Boolean!
+    user: User!
+}

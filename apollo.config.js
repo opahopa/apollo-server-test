@@ -1,0 +1,1 @@
+module.exports = { service: { name: 'opahopa-6993' } }
