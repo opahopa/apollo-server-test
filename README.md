@@ -1,4 +1,4 @@
-# apollo-api-test
+# apollo-server-test
 
 Sample apollo API graph with the user login imitation and basic CRUD for crowdfunding 'campaigns'. 
 
