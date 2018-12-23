@@ -1,4 +1,5 @@
 const SQL = require('sequelize');
+const path  = require("path");
 
 module.exports.createStore = () => {
   const Op = SQL.Op;
@@ -8,7 +9,7 @@ module.exports.createStore = () => {
 
   const db = new SQL('database', 'username', 'password', {
     dialect: 'sqlite',
-    storage: './store.sqlite',
+    storage: path.join(__dirname, "../store.sqlite"),
     operatorsAliases,
     logging: false,
   });
