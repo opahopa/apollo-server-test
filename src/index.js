@@ -40,7 +40,9 @@ const server = new ApolloServer({
     engine: {
         apiKey: process.env.ENGINE_API_KEY
     },
+
 });
+
 
 
 // Populate DB and run server
@@ -63,9 +65,9 @@ store.db.sync().then(async () => {
             }))
         );
     }
-
-    server.listen().then(({ url }) => {
-        console.log(`🚀 Server ready at ${url}`);
-    });
 });
 
+const port = process.env.PORT || 4000;
+server.listen({ port }).then(({ url }) => {
+    console.log(`🚀 Server ready at ${url}`);
+});
